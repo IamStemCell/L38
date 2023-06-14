@@ -4,3 +4,45 @@
 #Додати цей view до списків urls.
 
 #Запустити застосунок та подивитися на результат виконання твого запиту.
+
+
+
+django-admin startproject notes_app
+cd notes_app
+python manage.py startapp notes #створили додаток notes 
+
+файл 
+notes/views.py
+
+from django.shortcuts import render 
+
+from django.http import HttpResponse
+
+def hello_view(request):
+    return HttpResponse("Hello from Notes app.")
+
+файл notes_app/urls.py 
+
+from django.urls import path
+from notes.views import hello_view
+
+urlpatterns = [
+    path('hello/', hello_view, name='hello'),
+]
+
+
+файл notes_app/settings.py 
+INSTALLED_APPS = [
+
+    ...
+
+    'notes',
+
+]
+
+
+в терміналі python3 manage.py runserver
+в браузері http://localhost:8000/hello/
+
+ "Hello from Notes app."
+
