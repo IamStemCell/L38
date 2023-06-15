@@ -5,6 +5,16 @@
 
 #Запустити застосунок та подивитися на результат виконання твого запиту.
 
+готовий файл проекту notes_app з робочим застосунком notes в архіві
+
+.zip в LMS 
+
+В браузері на запит 
+
+127.0.0.1:800/notes 
+
+Hello from Notes app. 
+
 
 
 django-admin startproject notes_app
@@ -18,18 +28,20 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
-def hello_view(request):
+def index(request):
     return HttpResponse("Hello from Notes app.")
 
-створили файл notes/urls.py 
+створили файл в директорії notes під нахвою urls.py 
+
+файл 
+notes/urls.py 
 
 from django.urls import path
-from .views import hello_view
+from . import views
 
-app_name = 'notes'
 
 urlpatterns = [
-    path('hello/', hello_view, name='hello'),
+    path("", views.index, name='index'),
 ]
 
 файл notes_app/urls.py
@@ -38,7 +50,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('notes/', include('notes.urls')),
+    path('notes/', include("notes.urls")),
 ]
 
 
@@ -55,7 +67,8 @@ INSTALLED_APPS = [
 
 
 в терміналі python3 manage.py runserver
-в браузері http://localhost:8000/hello/
+в браузері
+http://127.0.0.1:8000/notes/
 
- "Hello from Notes app."
+ Hello from Notes app.
 
