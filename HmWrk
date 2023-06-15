@@ -31,7 +31,7 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse("Hello from Notes app.")
 
-створили файл в директорії notes під нахвою urls.py 
+створили файл в директорії notes під назвою urls.py 
 
 файл 
 notes/urls.py 
