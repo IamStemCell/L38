@@ -19,7 +19,7 @@ Hello from Notes app.
 
 django-admin startproject notes_app
 cd notes_app
-python manage.py startapp notes #створили додаток notes 
+django-admin startapp notes #створили додаток notes 
 
 файл 
 notes/views.py
